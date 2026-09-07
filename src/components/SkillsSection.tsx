@@ -32,7 +32,7 @@ export function SkillsSection() {
             SKILLS
           </h2>
           <p className="font-mono text-xs md:text-sm text-[var(--muted)] mt-2 max-w-xl">
-            Quantitative benchmarks based on verified curriculum, engineering practice, and international QA experience. All proficiencies and categories are declared in <code className="text-[var(--ink)] font-bold">portfolioData.ts</code>.
+            Quantitative benchmarks based on verified curriculum, engineering practice, and international QA experience.
           </p>
         </div>
 
