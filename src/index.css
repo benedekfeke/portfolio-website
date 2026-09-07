@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Ioskeley Mono';
+  src: url('/fonts/ioskeley-mono/IoskeleyMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ioskeley Mono';
+  src: url('/fonts/ioskeley-mono/IoskeleyMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ioskeley Mono';
+  src: url('/fonts/ioskeley-mono/IoskeleyMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ioskeley Mono';
+  src: url('/fonts/ioskeley-mono/IoskeleyMono-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ioskeley Mono';
+  src: url('/fonts/ioskeley-mono/IoskeleyMono-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --bg: #F8F7F4;
+    --ink: #1B1B1B;
+    --text: #1B1B1B;
+    --accent: #E34A21;
+    --muted: #666666;
+    --line: #1B1B1B;
+    --card-bg: #FFFFFF;
+    --surface: #EFECE6;
+    --surface-hover: #E5E1D8;
+    --page-padding: clamp(20px, 3.5vw, 48px);
+  }
+
+  .dark {
+    --bg: #121214;
+    --ink: #F2F1ED;
+    --text: #F2F1ED;
+    --accent: #FF5A2E;
+    --muted: #959490;
+    --line: #333338;
+    --card-bg: #1A1A1E;
+    --surface: #202026;
+    --surface-hover: #292930;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+    background-color: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-syne {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.05em;
+  }
+}
+
+/* Variation 2 Typography & Utility Classes */
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+}
+
+.meta-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+}
+
+.grid-card {
+  border: 1px solid var(--ink);
+  padding: 2rem;
+  background: var(--card-bg);
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.dark .grid-card {
+  border: 1px solid var(--line);
+  background: var(--card-bg);
+}
+
+.accent-box {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 1rem;
+  font-size: 0.75rem;
+  font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+}
+
+.brutal-btn {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.brutal-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.brutal-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Ioskeley Mono', 'Geist Mono', 'Space Mono', monospace;
+  font-size: 0.85rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.dark .brutal-input {
+  border-color: var(--line);
+}
+
+.brutal-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Syne display scale matching Variation 2 */
+.text-hero-brutal {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 6.8rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.text-section-brutal {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.editorial-media-container {
+  overflow: hidden;
+  position: relative;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--ink);
+}
+
+.dark .editorial-media-container {
+  border-bottom: 1px solid var(--line);
+}
+
+.editorial-media-img {
+  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: scale(1);
+}
+
+.grid-card:hover .editorial-media-img {
+  transform: scale(1.035);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
