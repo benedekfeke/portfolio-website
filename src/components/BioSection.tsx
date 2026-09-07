@@ -33,7 +33,7 @@ export function BioSection() {
               <img
                 src={personalInfo.placeholderPortrait.url}
                 alt={personalInfo.placeholderPortrait.alt}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
 
@@ -41,9 +41,9 @@ export function BioSection() {
             <div className="mt-2 p-2 bg-[var(--ink)] text-[var(--bg)] font-mono text-[0.65rem] flex items-center justify-between">
               <span className="flex items-center gap-1.5 font-bold">
                 <Camera size={12} className="text-[var(--accent)]" />
-                PORTRAIT PLACEHOLDER
+                PORTRAIT // BENEDEK FEKE
               </span>
-              <span>VER. 1.0</span>
+              <span>VER. 2026</span>
             </div>
           </div>
 

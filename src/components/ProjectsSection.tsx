@@ -80,7 +80,11 @@ export function ProjectsSection() {
                 <img
                   src={project.imagePlaceholderUrl}
                   alt={project.title}
-                  className="editorial-media-img w-full h-full object-cover grayscale group-hover:grayscale-0"
+                  className={`editorial-media-img w-full h-full ${
+                    project.objectFit === 'contain'
+                      ? 'object-contain p-3 bg-[var(--surface)]'
+                      : 'object-cover'
+                  } grayscale group-hover:grayscale-0`}
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />

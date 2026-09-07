@@ -13,20 +13,20 @@ export const personalInfo = {
   subheadline: 'Computer Science graduate (graduated with honors) pursuing Master\'s degree, with hands-on experience in Go, TypeScript, Python, Java (Spring Boot), advanced SQL, REST APIs, and QA automation.',
   location: 'Boľ, Slovakia',
   availability: 'Available for Junior Software Developer & Tester roles',
-  email: 'fekebenedek2003@gmail.com',
+  email: 'fekebenedek@proton.me',
   phone: '+421 917 760 711',
   github: 'https://github.com/benedekfeke',
   linkedin: 'www.linkedin.com/in/benedek-feke-328848401',
-  twitter: 'https://twitter.com',
+  twitter: '',
   bioSummary: [
     'Computer Science graduate (Informatics, graduated with honors) now pursuing a Master\'s degree at Technical University of Košice, with hands-on experience in Go, TypeScript and Python, Java (Spring Boot), plus advanced SQL and REST API development.',
     'Experienced in building full-stack applications, automated test suites (Selenium, Playwright), and collaborating in an international QA environment using agile practices.',
     'Looking to grow as a Junior Software Developer, contribute to business-valuable features, and learn from experienced colleagues in a collaborative team.'
   ],
   placeholderPortrait: {
-    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Benedek Feke - Professional Portrait Placeholder',
-    caption: 'Portrait Placeholder · Replaceable via portfolioData.ts'
+    url: '/assets/profile.jpg',
+    alt: 'Benedek Feke - Professional Portrait',
+    caption: 'Benedek Feke · Junior Software Developer & Tester'
   }
 };
 
@@ -70,7 +70,7 @@ export const skillsData: SkillItem[] = [
     name: 'Go (Golang)',
     category: 'languages',
     categoryLabel: 'Languages',
-    proficiency: 78,
+    proficiency: 50,
     levelLabel: 'Intermediate',
     note: 'Goroutines, channels, microservices, AMQP queues, race condition handling & idempotency'
   },
@@ -104,7 +104,7 @@ export const skillsData: SkillItem[] = [
     name: 'Next.js & React',
     category: 'frontend',
     categoryLabel: 'Frontend & UI',
-    proficiency: 82,
+    proficiency: 80,
     levelLabel: 'Intermediate',
     note: 'Full-stack Next.js applications, React hooks, scalable real-time UI state management'
   },
@@ -130,7 +130,7 @@ export const skillsData: SkillItem[] = [
     name: 'Google Cloud, AWS',
     category: 'devops',
     categoryLabel: 'DevOps & Cloud',
-    proficiency: 60,
+    proficiency: 40,
     levelLabel: 'Intermediate',
     note: 'Cloud hosting, Cloud Run, S3, IAM roles, and cloud infrastructure deployment'
   },
@@ -138,7 +138,7 @@ export const skillsData: SkillItem[] = [
     name: 'SonarQube, CI/CD',
     category: 'devops',
     categoryLabel: 'DevOps & Cloud',
-    proficiency: 76,
+    proficiency: 40,
     levelLabel: 'Intermediate',
     note: 'GitHub Actions, GitLab CI, Azure DevOps pipelines, automated code quality gates'
   },
@@ -162,7 +162,7 @@ export const skillsData: SkillItem[] = [
     name: 'Logging & Monitoring: Grafana, Prometheus',
     category: 'devops',
     categoryLabel: 'DevOps & Cloud',
-    proficiency: 56,
+    proficiency: 25,
     levelLabel: 'Basics',
     note: 'Time-series metrics collection, alert rules, health dashboards, operational telemetry'
   },
@@ -242,11 +242,11 @@ export const learningData: LearningTopic[] = [
   },
   {
     id: 'learn-go-automation',
-    title: 'Go Automation & Tooling',
+    title: 'Python Automation & Tooling',
     area: 'Backend & Automation',
     status: 'in progress–Practice',
-    keyTakeaway: 'Building concurrent test automation harnesses, CLI developer utilities, and high-throughput background automation pipelines in Go.',
-    resources: 'Go Standard Library, Go Testing & Benchmarking, Real-World Automation Projects'
+    keyTakeaway: 'Building concurrent test automation harnesses, CLI developer utilities, and high-throughput background automation pipelines in Python.',
+    resources: 'Python automation for DevOps, Real-World Automation Projects'
   }
 ];
 
@@ -275,8 +275,9 @@ export const projectsData: Project[] = [
       'Designed zero-layout-shift UI using custom state machines and Lottie vector animations for frictionless step-through navigation'
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Unity WebGL', 'Gemini API', 'PostgreSQL (Neon)', 'Auth0', 'Lottie', 'Tailwind CSS'],
-    imagePlaceholderUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1400&q=80',
+    imagePlaceholderUrl: '/assets/patternview_main_logo.png',
     imageAlt: 'Patternview Algorithm Visualization Platform preview',
+    objectFit: 'contain',
     featured: true,
     aspectRatio: '16/10',
     githubUrl: 'https://github.com/benedekfeke/patternview',
@@ -308,8 +309,9 @@ export const projectsData: Project[] = [
       'Wrote comprehensive JUnit automated test suites verifying board closure rules, boundary edge cases, and REST endpoints'
     ],
     technologies: ['Java', 'Spring Boot', 'React Three Fiber', 'Three.js', 'React', 'TypeScript', 'JPA / Hibernate', 'JDBC', 'JUnit', 'REST API'],
-    imagePlaceholderUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80',
+    imagePlaceholderUrl: '/assets/Dots_main_page.jpg',
     imageAlt: 'Dots & Boxes 3D Game Engine preview',
+    objectFit: 'cover',
     featured: true,
     aspectRatio: '16/10',
     githubUrl: 'https://github.com/benedekfeke/dots',
@@ -341,8 +343,9 @@ export const projectsData: Project[] = [
       'Docker & Docker Compose Orchestration: Packaged multi-stage minimal Go binaries into isolated container networks with automated health checks and persistent storage volumes'
     ],
     technologies: ['Go (Golang)', 'RabbitMQ', 'Docker', 'Docker Compose', 'PostgreSQL', 'Redis', 'Microservices', 'AMQP', 'Distributed Locking'],
-    imagePlaceholderUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80',
+    imagePlaceholderUrl: '/assets/Go_rabbitmq_oms_thumbnail.jpg',
     imageAlt: 'Go Distributed Order Management System Architecture preview',
+    objectFit: 'cover',
     featured: true,
     aspectRatio: '16/10',
     architectureDetails: [

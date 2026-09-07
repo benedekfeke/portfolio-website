@@ -21,6 +21,7 @@ export interface Project {
   technologies: string[];
   imagePlaceholderUrl: string;
   imageAlt: string;
+  objectFit?: 'cover' | 'contain';
   featured?: boolean;
   aspectRatio?: '16/10' | '4/3' | '1/1';
   githubUrl?: string;

@@ -71,7 +71,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <img
             src={project.imagePlaceholderUrl}
             alt={project.imageAlt}
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+            className={`w-full h-full ${
+              project.objectFit === 'contain'
+                ? 'object-contain p-4 bg-[var(--surface)]'
+                : 'object-cover'
+            } grayscale hover:grayscale-0 transition-all duration-300`}
           />
           {project.isPlaceholder ? (
             <div className="absolute bottom-0 inset-x-0 bg-[var(--ink)] text-[var(--bg)] p-3 text-[0.7rem] font-mono flex items-center justify-between gap-3">
