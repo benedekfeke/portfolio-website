@@ -16,7 +16,7 @@ export const personalInfo = {
   email: 'fekebenedek@proton.me',
   phone: '+421 917 760 711',
   github: 'https://github.com/benedekfeke',
-  linkedin: 'www.linkedin.com/in/benedek-feke-328848401',
+  linkedin: 'https://www.linkedin.com/in/benedek-feke-328848401',
   twitter: '',
   bioSummary: [
     'Computer Science graduate (Informatics, graduated with honors) now pursuing a Master\'s degree at Technical University of Košice, with hands-on experience in Go, TypeScript and Python, Java (Spring Boot), plus advanced SQL and REST API development.',

@@ -110,7 +110,11 @@ export function ContactSection() {
             </a>
 
             <a
-              href={personalInfo.linkedin}
+              href={
+                personalInfo.linkedin.startsWith('http://') || personalInfo.linkedin.startsWith('https://')
+                  ? personalInfo.linkedin
+                  : `https://${personalInfo.linkedin}`
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[var(--ink)] font-mono text-xs uppercase hover:bg-[var(--ink)] hover:text-[var(--bg)] transition-colors"
