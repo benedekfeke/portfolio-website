@@ -1,7 +1,82 @@
+import { useEffect, useRef } from 'react';
 import { ArrowDown, Code2, Terminal, Cpu } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export function Hero() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const el = titleRef.current;
+    if (!el) return;
+
+    const adjustFontSize = () => {
+      // Reset inline font-size to allow natural CSS clamp computation
+      el.style.fontSize = '';
+
+      const parent = el.parentElement;
+      if (!parent) return;
+
+      const containerWidth = parent.clientWidth;
+      if (!containerWidth) return;
+
+      // Ensure the text fits both within the container and within the viewport horizontally
+      const rect = el.getBoundingClientRect();
+      const leftOffset = Math.max(rect.left, 0);
+      const viewportAvailable = Math.max(180, window.innerWidth - leftOffset - 16);
+      const maxAllowedWidth = Math.min(containerWidth, viewportAvailable);
+
+      const currentWidth = el.scrollWidth;
+
+      if (currentWidth > maxAllowedWidth) {
+        const computed = window.getComputedStyle(el);
+        const currentFontSize = parseFloat(computed.fontSize);
+        if (!currentFontSize) return;
+
+        // Proportional scale factor with a 2% buffer for subpixel kerning and letter spacing
+        let targetFontSize = Math.floor((currentFontSize * maxAllowedWidth) / currentWidth * 0.98);
+
+        el.style.fontSize = `${targetFontSize}px`;
+
+        // Iterative safeguard: ensure scrollWidth and viewport bounding rect strictly do not overflow
+        while (
+          (el.scrollWidth > maxAllowedWidth || el.getBoundingClientRect().right > window.innerWidth - 8) &&
+          targetFontSize > 14
+        ) {
+          targetFontSize -= 1;
+          el.style.fontSize = `${targetFontSize}px`;
+        }
+      }
+    };
+
+    let frameId: number;
+    const triggerAdjust = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(adjustFontSize);
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      triggerAdjust();
+    });
+
+    if (el.parentElement) {
+      resizeObserver.observe(el.parentElement);
+    }
+    window.addEventListener('resize', triggerAdjust);
+
+    // Re-run once custom Syne webfont is fully loaded and measured
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(triggerAdjust);
+    }
+
+    triggerAdjust();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', triggerAdjust);
+    };
+  }, []);
+
   const scrollToProjects = () => {
     const el = document.querySelector('#projects');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -31,11 +106,11 @@ export function Hero() {
       {/* Main Brutalist Display Headline */}
       <h1
         id="hero-display-title"
-        className="text-hero-brutal text-[var(--ink)] m-0 select-none"
+        ref={titleRef}
+        className="text-hero-brutal text-[var(--ink)] m-0 select-none max-w-full"
       >
-        ENGINEERED
-        <br />
-        SIMPLICITY.
+        <span className="block whitespace-nowrap">ENGINEERED</span>
+        <span className="block whitespace-nowrap">SIMPLICITY.</span>
       </h1>
 
       {/* Hero Description & Subtext */}

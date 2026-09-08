@@ -25,15 +25,15 @@ export function EducationSection() {
       </div>
 
       {/* Education Cards */}
-      <div className="space-y-6 pt-8">
+      <div className="space-y-6 pt-2">
         {educationData.map((edu, idx) => (
           <div
             key={idx}
-            className="grid-card"
+            className="grid-card relative"
           >
             {/* Degree, Institution, Period */}
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 pb-4 mb-4 border-b border-[var(--ink)]">
-              <div>
+            <div className="pb-4 mb-4 border-b border-[var(--ink)]">
+              <div className="pr-16 sm:pr-28">
                 <div className="meta-label text-[var(--accent)] font-bold">
                   {edu.institution} // {edu.location}
                 </div>
@@ -42,10 +42,13 @@ export function EducationSection() {
                 </h3>
               </div>
 
-              <div className="flex items-center gap-3 font-mono text-xs">
-                <span className="p-1 border border-[var(--ink)] bg-[var(--bg)]">{edu.period}</span>
+              {/* Pinned to top right corner with minimal margin & higher transparency */}
+              <div className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 z-10 flex flex-wrap items-center justify-end gap-1.5 font-mono text-[0.65rem] sm:text-xs p-1 backdrop-blur-xl bg-[color-mix(in_srgb,var(--card-bg)_10%,transparent)] border border-[var(--ink)]/15 shadow-xs max-w-[65%] sm:max-w-none">
+                <span className="px-1.5 py-0.5 border border-[var(--ink)]/30 bg-[color-mix(in_srgb,var(--bg)_15%,transparent)] shrink-0">
+                  {edu.period}
+                </span>
                 {edu.gradeOrHonors && (
-                  <span className="p-1 bg-[var(--ink)] text-[var(--bg)] font-bold uppercase">
+                  <span className="px-1.5 py-0.5 bg-[color-mix(in_srgb,var(--ink)_65%,transparent)] text-[var(--bg)] font-bold uppercase shrink-0">
                     {edu.gradeOrHonors}
                   </span>
                 )}

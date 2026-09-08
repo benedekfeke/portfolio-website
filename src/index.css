@@ -177,11 +177,18 @@
 /* Syne display scale matching Variation 2 */
 .text-hero-brutal {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 6.8rem);
+  font-size: clamp(2rem, 7.5vw, 6.8rem);
   line-height: 0.85;
   letter-spacing: -0.06em;
   text-transform: uppercase;
   font-weight: 800;
+  max-width: 100%;
+}
+
+#hero-display-title {
+  max-width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .text-section-brutal {

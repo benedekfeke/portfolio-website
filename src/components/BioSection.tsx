@@ -136,35 +136,39 @@ export function BioSection() {
           {milestonesData.map((milestone, idx) => (
             <div
               key={idx}
-              className="p-3.5 border border-[var(--ink)] flex flex-col sm:flex-row sm:items-start justify-between gap-3 hover:bg-[var(--surface-hover)] transition-colors"
+              className="p-3.5 sm:p-4 border border-[var(--ink)] flex flex-col gap-3 hover:bg-[var(--surface-hover)] transition-colors"
             >
-              <div className="space-y-1 sm:max-w-md">
-                <div className="flex items-center gap-2.5">
-                  <span className="bg-[var(--ink)] text-[var(--bg)] px-2 py-0.5 text-[0.65rem] font-bold">
+              {/* Top Half: Period, Role, Org & Distributed Tags */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 pb-2.5 border-b border-[var(--ink)]/15">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="bg-[var(--ink)] text-[var(--bg)] px-2 py-0.5 text-[0.65rem] font-bold tracking-wider shrink-0">
                     {milestone.period}
                   </span>
-                  <span className="font-bold text-[var(--ink)]">
+                  <span className="font-bold text-[var(--ink)] text-xs sm:text-sm">
                     {milestone.role}
                   </span>
+                  <span className="text-[0.7rem] text-[var(--accent)] font-mono font-medium">
+                    // {milestone.organization}
+                  </span>
                 </div>
-                <div className="text-[0.7rem] text-[var(--accent)] font-mono">
-                  {milestone.organization}
+
+                {/* Tags distributed across the top half without overflowing */}
+                <div className="flex flex-wrap items-center gap-1.5 lg:justify-end max-w-full">
+                  {milestone.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[0.62rem] border border-[var(--ink)] px-2 py-0.5 bg-[var(--bg)] text-[var(--ink)] font-mono font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <p className="text-[0.7rem] text-[var(--muted)] leading-relaxed">
-                  {milestone.summary}
-                </p>
               </div>
 
-              <div className="flex flex-wrap gap-1 shrink-0">
-                {milestone.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[0.6rem] border border-[var(--ink)] px-1.5 py-0.5 bg-[var(--bg)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {/* Full-width Job Description (no longer capped horizontally to the left) */}
+              <p className="text-xs text-[var(--muted)] leading-relaxed w-full">
+                {milestone.summary}
+              </p>
             </div>
           ))}
         </div>
