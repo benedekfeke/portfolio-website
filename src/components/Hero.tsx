@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { ArrowDown, Code2, Terminal, Cpu } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { personalInfo, heroFacts } from '../data/portfolioData';
+import { Reveal } from './Reveal';
 
 export function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -77,98 +78,59 @@ export function Hero() {
     };
   }, []);
 
-  const scrollToProjects = () => {
-    const el = document.querySelector('#projects');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = () => {
-    const el = document.querySelector('#contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (selector: string) => {
+    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section
-      id="hero-section"
-      className="pb-16 pt-6 xl:pt-10 border-b-2 border-[var(--ink)]"
-    >
+    <section id="hero-section" className="pb-16 md:pb-24 pt-6 xl:pt-10">
       {/* Meta header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <Reveal className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="meta-label flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse" />
           AVAILABLE FOR HIRE
         </div>
-        <div className="meta-label">
-          SYS.VER // 2026.9
-        </div>
-      </div>
+        <div className="meta-label">{personalInfo.role}</div>
+      </Reveal>
 
       {/* Main Brutalist Display Headline */}
-      <h1
-        id="hero-display-title"
-        ref={titleRef}
-        className="text-hero-brutal text-[var(--ink)] m-0 select-none max-w-full"
-      >
-        <span className="block whitespace-nowrap">ENGINEERED</span>
-        <span className="block whitespace-nowrap">SIMPLICITY.</span>
-      </h1>
+      <Reveal delay={80}>
+        <h1
+          id="hero-display-title"
+          ref={titleRef}
+          className="text-hero-brutal text-[var(--ink)] m-0 select-none max-w-full"
+        >
+          <span className="block whitespace-nowrap">ENGINEERED</span>
+          <span className="block whitespace-nowrap">SIMPLICITY.</span>
+        </h1>
+      </Reveal>
 
-      {/* Hero Description & Subtext */}
-      <div className="mt-8 max-w-2xl">
+      <Reveal delay={160} className="mt-8 max-w-2xl">
         <p className="text-base sm:text-lg md:text-xl font-mono leading-relaxed text-[var(--ink)]">
           {personalInfo.subheadline}
         </p>
-        <p className="text-xs font-mono text-[var(--muted)] mt-3">
-          Specializing in Go, React, Java, distributed backends, and performance-first architecture.
-        </p>
-      </div>
+      </Reveal>
 
-      {/* Action buttons & tech pillars */}
-      <div className="mt-10 flex flex-wrap items-center gap-4">
-        <button
-          id="hero-action-projects"
-          type="button"
-          onClick={scrollToProjects}
-          className="brutal-btn"
-        >
+      <Reveal delay={240} className="mt-10 flex flex-wrap items-center gap-3">
+        <button id="hero-action-projects" type="button" onClick={() => scrollTo('#projects')} className="brutal-btn">
           <span>Explore Works</span>
           <ArrowDown size={14} />
         </button>
-
-        <button
-          id="hero-action-contact"
-          type="button"
-          onClick={scrollToContact}
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider py-2.5 px-4 border border-[var(--ink)] hover:bg-[var(--surface-hover)] transition-colors text-[var(--ink)] cursor-pointer"
-        >
-          <span>Initiate Contact</span>
+        <button id="hero-action-contact" type="button" onClick={() => scrollTo('#contact')} className="ghost-btn">
+          <span>Get in touch</span>
+          <ArrowUpRight size={14} />
         </button>
-      </div>
+      </Reveal>
 
-      {/* Technical metrics / disciplines grid */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-[var(--ink)]">
-        <div className="flex items-start gap-3">
-          <Terminal size={16} className="text-[var(--accent)] shrink-0 mt-0.5" />
-          <div>
-            <div className="meta-label">ARCHITECTURE</div>
-            <div className="text-xs font-mono text-[var(--ink)] mt-0.5">Distributed & Clean Code</div>
+      {/* At-a-glance facts */}
+      <Reveal delay={320} className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-[var(--rule)]">
+        {heroFacts.map((fact) => (
+          <div key={fact.label}>
+            <div className="meta-label font-bold text-[var(--accent)]">{fact.label}</div>
+            <div className="mt-1.5 font-mono text-xs sm:text-sm leading-snug text-[var(--ink)]">{fact.value}</div>
           </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <Code2 size={16} className="text-[var(--accent)] shrink-0 mt-0.5" />
-          <div>
-            <div className="meta-label">INTERFACE</div>
-            <div className="text-xs font-mono text-[var(--ink)] mt-0.5">Intuitive and clean User Interface</div>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <Cpu size={16} className="text-[var(--accent)] shrink-0 mt-0.5" />
-          <div>
-            <div className="meta-label">SYSTEMS</div>
-            <div className="text-xs font-mono text-[var(--ink)] mt-0.5">Resilient Cloud & CI/CD</div>
-          </div>
-        </div>
-      </div>
+        ))}
+      </Reveal>
     </section>
   );
 }

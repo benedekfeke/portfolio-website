@@ -1,91 +1,52 @@
-import { GraduationCap, Award, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import { educationData } from '../data/portfolioData';
+import { Reveal } from './Reveal';
+import { SectionHeader } from './SectionHeader';
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-16 md:py-24 border-b-2 border-[var(--ink)]">
-      {/* Section Tag */}
-      <div className="meta-label mb-4 text-[var(--accent)] font-bold">
-        [04] // ACADEMIC FOUNDATION
-      </div>
+    <section id="education" className="py-16 md:py-24 border-t border-[var(--rule)]">
+      <SectionHeader index="04" eyebrow="ACADEMIC FOUNDATION" title="EDUCATION" />
 
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[var(--ink)]">
-        <div>
-          <h2 className="text-section-brutal text-[var(--ink)]">
-            EDUCATION
-          </h2>
-          <p className="font-mono text-xs md:text-sm text-[var(--muted)] mt-2 max-w-xl">
-            Formal theoretical grounding in algorithms, discrete mathematics, distributed systems, and modern software engineering.
-          </p>
-        </div>
-
-        <div className="meta-label text-right shrink-0">
-          ACADEMIC // COMPUTER SCIENCE
-        </div>
-      </div>
-
-      {/* Education Cards */}
-      <div className="space-y-6 pt-2">
+      <div className="space-y-4">
         {educationData.map((edu, idx) => (
-          <div
-            key={idx}
-            className="grid-card relative"
+          <Reveal
+            as="article"
+            key={edu.degree}
+            delay={idx * 80}
+            className="glass-card facet grid grid-cols-1 md:grid-cols-[170px_1fr] gap-3 md:gap-8 p-5 sm:p-6"
           >
-            {/* Degree, Institution, Period */}
-            <div className="pb-4 mb-4 border-b border-[var(--ink)]">
-              <div className="pr-16 sm:pr-28">
-                <div className="meta-label text-[var(--accent)] font-bold">
-                  {edu.institution} // {edu.location}
-                </div>
-                <h3 className="font-syne font-extrabold text-xl sm:text-2xl uppercase tracking-tight text-[var(--ink)] mt-1">
-                  {edu.degree}
-                </h3>
-              </div>
-
-              {/* Pinned to top right corner with minimal margin & higher transparency */}
-              <div className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 z-10 flex flex-wrap items-center justify-end gap-1.5 font-mono text-[0.65rem] sm:text-xs p-1 backdrop-blur-xl bg-[color-mix(in_srgb,var(--card-bg)_10%,transparent)] border border-[var(--ink)]/15 shadow-xs max-w-[65%] sm:max-w-none">
-                <span className="px-1.5 py-0.5 border border-[var(--ink)]/30 bg-[color-mix(in_srgb,var(--bg)_15%,transparent)] shrink-0">
-                  {edu.period}
-                </span>
-                {edu.gradeOrHonors && (
-                  <span className="px-1.5 py-0.5 bg-[color-mix(in_srgb,var(--ink)_65%,transparent)] text-[var(--bg)] font-bold uppercase shrink-0">
-                    {edu.gradeOrHonors}
-                  </span>
-                )}
-              </div>
+            <div className="flex md:flex-col items-center md:items-start gap-2">
+              <span className="font-mono text-xs font-bold text-[var(--ink)]">{edu.period}</span>
+              {edu.gradeOrHonors && (
+                <span className="tag bg-[var(--ink)] text-[var(--bg)]">{edu.gradeOrHonors}</span>
+              )}
             </div>
 
-            {/* Description */}
-            <p className="font-mono text-xs leading-relaxed text-[var(--muted)] mb-4 max-w-2xl">
-              {edu.description}
-            </p>
-
-            {/* Thesis */}
-            {edu.capstoneOrThesis && (
-              <div className="p-3 mb-4 bg-[var(--surface)] border border-[var(--ink)] flex items-start gap-2.5 font-mono text-xs">
-                <FileText size={15} className="text-[var(--accent)] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold text-[var(--ink)]">THESIS // </span>
-                  <span className="text-[var(--muted)]">{edu.capstoneOrThesis}</span>
-                </div>
+            <div>
+              <div className="meta-label font-bold text-[var(--accent)]">
+                {edu.institution} · {edu.location}
               </div>
-            )}
+              <h3 className="font-syne font-extrabold text-lg sm:text-xl uppercase tracking-tight text-[var(--ink)] mt-1 leading-tight">
+                {edu.degree}
+              </h3>
+              <p className="font-mono text-xs leading-relaxed text-[var(--muted)] mt-2 max-w-2xl">{edu.description}</p>
 
-            {/* Coursework Tags */}
-            <div className="pt-2">
-              <div className="meta-label mb-2">CURRICULUM & MODULES</div>
-              <div className="flex flex-wrap gap-1.5">
-                {edu.coursework.map((course) => (
-                  <span
-                    key={course}
-                    className="text-[0.65rem] font-mono uppercase px-2 py-0.5 border border-[var(--ink)] bg-[var(--bg)] text-[var(--ink)]"
-                  >
-                    {course}
+              {edu.capstoneOrThesis && (
+                <p className="mt-3 flex items-start gap-2 font-mono text-xs text-[var(--ink)]">
+                  <FileText size={14} className="text-[var(--accent)] shrink-0 mt-0.5" />
+                  <span>
+                    <span className="font-bold">Thesis: </span>
+                    {edu.capstoneOrThesis}
                   </span>
-                ))}
-              </div>
+                </p>
+              )}
+
+              <p className="mt-3 font-mono text-[0.7rem] leading-relaxed text-[var(--muted)]">
+                {edu.coursework.join(' · ')}
+              </p>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

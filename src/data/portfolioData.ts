@@ -10,7 +10,7 @@ export const personalInfo = {
   name: 'Benedek Feke',
   role: 'Junior Software Developer & Tester',
   headline: 'Engineered simplicity.',
-  subheadline: 'Computer Science graduate (graduated with honors) pursuing Master\'s degree, with hands-on experience in Go, TypeScript, Python, Java (Spring Boot), advanced SQL, REST APIs, and QA automation.',
+  subheadline: 'CS graduate with honors, now pursuing a Master\'s at TU Košice. I build backends in Go and Java, full-stack apps in TypeScript, and test automation in Python.',
   location: 'Boľ, Slovakia',
   availability: 'Available for Junior Software Developer & Tester roles',
   email: 'fekebenedek@proton.me',
@@ -19,9 +19,8 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/benedek-feke-328848401',
   twitter: '',
   bioSummary: [
-    'Computer Science graduate (Informatics, graduated with honors) now pursuing a Master\'s degree at Technical University of Košice, with hands-on experience in Go, TypeScript and Python, Java (Spring Boot), plus advanced SQL and REST API development.',
-    'Experienced in building full-stack applications, automated test suites (Selenium, Playwright), and collaborating in an international QA environment using agile practices.',
-    'Looking to grow as a Junior Software Developer, contribute to business-valuable features, and learn from experienced colleagues in a collaborative team.'
+    'Computer Science graduate (with honors), now doing a Master\'s at the Technical University of Košice while working as a QA / Software Tester in an international agile team.',
+    'I build full-stack applications and automated test suites (Selenium, Playwright), and I\'m looking to grow as a Junior Software Developer alongside experienced engineers.'
   ],
   placeholderPortrait: {
     url: '/assets/profile.jpg',
@@ -29,6 +28,24 @@ export const personalInfo = {
     caption: 'Benedek Feke · Junior Software Developer & Tester'
   }
 };
+
+/**
+ * Three at-a-glance facts shown under the hero headline
+ */
+export const heroFacts = [
+  { label: 'Now', value: 'QA / Software Tester at Datadocksolutions' },
+  { label: 'Study', value: "Master's in Informatics, TU Košice" },
+  { label: 'Core stack', value: 'Go · TypeScript · Java · Python' }
+];
+
+/**
+ * Headline numbers in the Bio section
+ */
+export const bioMetrics = [
+  { value: '3+', label: 'Years engineering' },
+  { value: 'BSc', label: 'With honors' },
+  { value: '3', label: 'Languages spoken' }
+];
 
 /**
  * =========================================================================
@@ -244,7 +261,7 @@ export const learningData: LearningTopic[] = [
     id: 'learn-go-automation',
     title: 'Python Automation & Tooling',
     area: 'Backend & Automation',
-    status: 'in progress–Practice',
+    status: 'Practicing',
     keyTakeaway: 'Building concurrent test automation harnesses, CLI developer utilities, and high-throughput background automation pipelines in Python.',
     resources: 'Python automation for DevOps, Real-World Automation Projects'
   }
@@ -265,7 +282,7 @@ export const projectsData: Project[] = [
     year: '2025',
     category: 'full-stack',
     categoryLabel: 'Interactive Educational Platform',
-    shortDescription: 'Bachelor thesis project: an interactive visualization platform for algorithms and data structures combining Next.js, Unity WebGL, and Gemini AI reasoning.',
+    shortDescription: 'Bachelor thesis: an interactive platform for learning algorithms and data structures, combining Next.js, Unity WebGL and Gemini AI explanations.',
     fullOverview: 'Patternview is an educational software platform designed for deep, intuitive understanding of algorithms and computational data structures. Engineered as a Bachelor\'s thesis at Technical University of Košice, the project overcomes traditional textbook learning hurdles by providing real-time visual feedback.\n\nRather than presenting static diagrams or pre-recorded clips, Patternview embeds interactive Unity WebGL graphics into a modern Next.js environment. Users directly manipulate data collections (sorting algorithms, tree balancing, graph traversals), step through execution frames, and interact with the Google Gemini API for context-aware code explanations, invariant verification, and time-complexity breakdowns.',
     problemStatement: 'Computer science students frequently struggle to build accurate mental models of recursive stack traces, memory mutations, and pointer reassignments when relying solely on static slides and mathematical proofs.',
     keyHighlights: [
@@ -298,7 +315,7 @@ export const projectsData: Project[] = [
     year: '2025',
     category: 'systems',
     categoryLabel: 'Game Engine & Micro-Services',
-    shortDescription: 'Combinatorial strategy game implementation featuring recursive Minimax AI decision trees, Spring Boot REST/JPA services, and React Three Fiber 3D visuals.',
+    shortDescription: 'Strategy game with a Minimax AI opponent, Spring Boot REST/JPA services and a React Three Fiber 3D board.',
     fullOverview: 'A full-stack, multi-interface implementation of the combinatorial Dots & Boxes game. The project encompasses a rigorous algorithmic Java core, AI opponent bots, modular Spring Boot web services, and an interactive 3D spatial interface built with React Three Fiber and Three.js.\n\nThe system was engineered to isolate game state invariants from the delivery layer: the pure domain core drives both head-to-head terminal CLI sessions and interactive 3D browser viewports. A dedicated Spring Boot GameStudio server exposes RESTful leaderboards, comments, and player rating micro-services backed by interchangeable JDBC and JPA/Hibernate database layers.',
     problemStatement: 'Decoupling complex combinatorial rule engines from varying presentation layers (terminal vs 3D web) while maintaining sub-millisecond move evaluation times and ACID transaction integrity on high-score updates.',
     keyHighlights: [
@@ -332,7 +349,7 @@ export const projectsData: Project[] = [
     year: '2026',
     category: 'systems',
     categoryLabel: 'Distributed Microservices',
-    shortDescription: 'High-concurrency order management microservices engine in Go with RabbitMQ queues, strict idempotency guarantees, race condition safeguards, and Docker Compose orchestration.',
+    shortDescription: 'Event-driven order management microservices in Go with RabbitMQ, idempotency guarantees and race-condition safeguards, orchestrated with Docker Compose.',
     fullOverview: 'A high-throughput, event-driven Order Management System (OMS) engineered in Go to handle distributed asynchronous order lifecycles under extreme concurrency.\n\nMicroservices architectures introduce severe edge cases during high-volume spikes: double-billing from network retries, negative inventory caused by race conditions, and data inconsistency across service boundaries. This system resolves these failure modes through strict idempotency layers, Redis distributed locking, optimistic concurrency controls, and RabbitMQ message broker topologies with transactional outbox patterns.',
     problemStatement: 'Under high concurrent traffic spikes (e.g., flash sales), synchronous HTTP order flows frequently collapse under cascading timeouts, leading to duplicate customer charges and oversold stock when inventory write locks contend.',
     keyHighlights: [
@@ -369,7 +386,7 @@ export const educationData: EducationItem[] = [
     location: 'Košice, Slovakia',
     period: '2026 – Present',
     gradeOrHonors: 'In Progress',
-    description: 'Pursuing advanced graduate studies in Informatics and Computer Science, focusing on distributed systems, cloud computing, advanced software engineering, and concurrent systems.',
+    description: 'Graduate studies focused on distributed systems, cloud computing and concurrent systems.',
     coursework: [
       'Distributed Systems & Microservices',
       'Advanced Cloud Architectures',
@@ -383,7 +400,7 @@ export const educationData: EducationItem[] = [
     location: 'Košice, Slovakia',
     period: '2023 – 2026',
     gradeOrHonors: 'Graduated with honors',
-    description: 'Rigorous theoretical and practical foundation in computer science, algorithms, software engineering, databases, and network protocols. Graduated with honors.',
+    description: 'Foundations in algorithms, software engineering, databases and network protocols.',
     coursework: [
       'Data Structures & Algorithm Optimization',
       'Database Systems & Relational Theory',
@@ -399,7 +416,7 @@ export const educationData: EducationItem[] = [
     location: 'Kráľovský Chlmec, Slovakia',
     period: '2015 – 2023',
     gradeOrHonors: 'Maturita Exam',
-    description: 'Eight-year academic gymnasium with an intensive focus on mathematics, physics, chemistry, analytical logic, and modern languages.',
+    description: 'Eight-year academic program with a focus on mathematics, physics and languages.',
     coursework: [
       'Advanced Mathematics & Discrete Logic',
       'Physics & Scientific Computing',
@@ -425,21 +442,21 @@ export const milestonesData: MilestoneItem[] = [
     period: 'Nov 2025 – Present',
     role: 'Quality Assurance / Software Tester',
     organization: 'Datadocksolutions (International Environment)',
-    summary: 'Collaborate daily with engineering teams in an agile international environment. Design and execute manual and automated test scripts (Python — Selenium, Playwright), analyze test metrics, report defects, verify bug fixes, and assist with operational workflows.',
+    summary: 'Design and run manual and automated tests (Python — Selenium, Playwright) with engineering teams in an agile, international setup; report defects and verify fixes.',
     tags: ['Python', 'Selenium', 'Playwright', 'Agile QA', 'Test Automation', 'Defect Analysis', 'Jira']
   },
   {
     period: 'Aug 2025 – Apr 2026',
     role: 'Lead Developer — Patternview',
     organization: 'Personal Project',
-    summary: 'Architected and built a 3D interactive full-stack visualization platform using Unity, Next.js, React and TypeScript. Implemented client-server state synchronization over WebGL using react-unity-webgl and custom React hooks.',
+    summary: 'Built a 3D interactive visualization platform with Unity, Next.js and TypeScript, syncing state between React and WebGL through custom hooks.',
     tags: ['Unity', 'C#', 'Next.js', 'React', 'TypeScript', 'WebGL', 'State Sync']
   },
   {
     period: 'Jan 2025 – May 2025',
     role: 'Full-Stack Developer — Dots & Boxes 3D',
     organization: 'Personal Project',
-    summary: 'Engineered a Java Spring Boot REST backend with JPA and SQLite, consumed by a responsive React frontend. Implemented custom Minimax/Heuristic game-playing bots, real-time move validation, and Three.js 3D board rendering.',
+    summary: 'Spring Boot REST backend with JPA and SQLite behind a React frontend, with Minimax game bots and a Three.js 3D board.',
     tags: ['Java', 'Spring Boot', 'REST API', 'React', 'Three.js', 'OOP', 'Game Bots']
   }
 ];
@@ -447,14 +464,14 @@ export const milestonesData: MilestoneItem[] = [
 export const editorialPrinciples = [
   {
     title: 'Clarity Over Cleverness',
-    description: 'Code is read ten times more often than it is written. Simple data structures, self-documenting naming, and deterministic functions outlive flashy, convoluted abstractions.'
+    description: 'Simple data structures and honest naming outlive clever abstractions.'
   },
   {
     title: 'Performance as an Aesthetic',
-    description: 'Speed and low latency are not mere technical checkboxes—they are the foundation of user trust. A responsive UI and lean bundle deliver a calm, respectful digital experience.'
+    description: 'Speed builds trust: lean bundles and responsive interfaces.'
   },
   {
     title: 'Restraint & Editorial Craft',
-    description: 'True design quality comes from knowing what to leave out. We avoid visual noise, artificial gradients, and unnecessary chrome to let content and purpose take center stage.'
+    description: 'Quality comes from knowing what to leave out.'
   }
 ];
